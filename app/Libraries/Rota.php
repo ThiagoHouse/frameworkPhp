@@ -1,10 +1,22 @@
 <?php
 
 class Rota {
+
+    private $controlador = 'Paginas';
+
     public function __construct()
     {
-        $this->url();   
-        var_dump($this->url());     
+        $url = $this->url() ? $this->url() : [0];
+        
+        if (file_exists('../app/Controllers/'.ucwords($url[0]).'.php')):
+            $this->controlador = ucwords($url[0]);
+            unset($url[0]);
+        endif;
+
+        require_once '../app/Controllers/'.$this->controlador.'.php';
+        $this->controlador = new $this->controlador;
+
+        var_dump($this);     
     }
     private function url()
     {
