@@ -2,7 +2,7 @@
 
 define('APP', dirname(__FILE__));
 
-const URL = 'http://localhost/frameworkPhp/';
+const URL = 'http://localhost/frameworkPhp';
 
 const APP_NOME = 'FrameworkPhp';
 
