@@ -7,7 +7,7 @@
 
                 <div class="img-fluid logo">
                     <img class="rounded-circle" src="<?=URL?>/public/img/logo.jpg" alt="<?=APP_NOME?>" 
-                    title="<?=APP_NOME?>"">
+                    title="<?=APP_NOME?>">
                 </div>
             </div>
         </div>
