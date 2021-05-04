@@ -56,7 +56,7 @@ class Database {
         return $this->stmt->execute();
     }
 
-    public function resultado()
+    public function resultados()
     {
         $this->executa();
         return $this->stmt->fetch(PDO::FETCH_OBJ);
