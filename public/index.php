@@ -1,19 +1,6 @@
 <?php
 include './../app/configuracao.php';
-include './../app/Libraries/Rota.php';
-include './../app/Libraries/Controller.php';
-include './../app/Libraries/Database.php';
-$db = new Database;
-
-$id = 1;
-
-$db->query("SELECT * FROM posts WHERE id = {$id} ");
-
-foreach($db->resultados() as $post){
-    echo $post->id.' - '.$post->titulo.'<br>';
-}
-
-echo '<hr>Total Resultados: '.$db->totalResultados();
+include './../app/autoload.php';
 
 ?>
 <!DOCTYPE html>
