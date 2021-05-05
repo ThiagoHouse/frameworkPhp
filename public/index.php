@@ -5,19 +5,15 @@ include './../app/Libraries/Controller.php';
 include './../app/Libraries/Database.php';
 $db = new Database;
 
-$usuarioId = 10;
-$titulo = 'Título do post';
-$texto = 'Texto do post';
+$id = 1;
 
-$db->query("INSERT INTO posts (usuario_id, titulo, texto) VALUES (:usuario_id, :titulo, :texto)");
-$db->bind(":usuario_id", $usuarioId);
-$db->bind(":titulo", $titulo);
-$db->bind(":texto", $texto);
+$db->query("SELECT * FROM posts WHERE id = {$id} ");
 
-$db->executa();
+foreach($db->resultados() as $post){
+    echo $post->id.' - '.$post->titulo.'<br>';
+}
 
-echo '<hr> Total de Resultados: '.$db->totalResultados();
-echo '<hr> Último id: '.$db->ultimoIdInserido();
+echo '<hr>Total Resultados: '.$db->totalResultados();
 
 ?>
 <!DOCTYPE html>
