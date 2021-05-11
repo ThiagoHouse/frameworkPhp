@@ -2,24 +2,24 @@
 <div class="card">
     <div class="card-body">
         <h2>Cadastre-se</h2>
-        <small>Preencha o formulário abaixo para fazer seu cadastro</small>
+        <small class="text-muted">Preencha o formulário abaixo para fazer seu cadastro</small>
 
-        <form name="cadastrar" method="POST" action="">
+        <form name="cadastrar" method="POST" action="<?=URL?>/usuarios/cadastrar">
             <div class="mb-3">
                 <label for="nome">Nome: <sup class="text-danger">*</sup></label>
-                <input type="text" name="nome" id="nome" class="form-control" required>
+                <input type="text" name="nome" id="nome" value="<?=$dados['nome']?>" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label for="email">E-mail: <sup class="text-danger">*</sup></label>
-                <input type="email" name="email" id="email" class="form-control" required>
+                <input type="email" name="email" id="email" value="<?=$dados['email']?>" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label for="senha">Senha: <sup class="text-danger">*</sup></label>
-                <input type="password" name="senha" id="senha" class="form-control" required>
+                <input type="password" name="senha" id="senha" value="<?=$dados['senha']?>" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label for="confirmar_senha">Confirmar senha: <sup class="text-danger">*</sup></label>
-                <input type="password" name="confirmar_senha" id="confirmar_senha" class="form-control" required>
+                <label for="confirma_senha">Confirmar senha: <sup class="text-danger">*</sup></label>
+                <input type="password" name="confirma_senha" id="confirma_senha" value="<?=$dados['confirma_senha']?>" class="form-control" required>
             </div>
 
             <div class="row">
