@@ -36,7 +36,7 @@ class Usuarios extends Controller
                 echo 'Pode realizar o cadastro';
             endif;
 
-            var_dump($formulario);
+            //var_dump($formulario);
         else:
             $dados = [
                 'nome' => '',
