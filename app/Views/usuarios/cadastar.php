@@ -17,7 +17,7 @@
                         <?= $dados['nome_erro'] ?>
                     </div>
                 </div>
-                <div class="mb-3">
+                <div class="form-group">
                     <label for="email">E-mail: <sup class="text-danger">*</sup></label>
 
                     <input type="email" name="email" id="email" value="<?=$dados['email']?>"
@@ -26,7 +26,7 @@
                         <?=$dados['email_erro']?>
                     </div>
                 </div>
-                <div class="mb-3">
+                <div class="form-group">
                     <label for="senha">Senha: <sup class="text-danger">*</sup></label>
 
                     <input type="password" name="senha" id="senha" value="<?=$dados['senha']?>"
@@ -35,7 +35,7 @@
                         <?=$dados['senha_erro']?>
                     </div>
                 </div>
-                <div class="mb-3">
+                <div class="form-group">
                     <label for="confirma_senha">Confirmar senha: <sup class="text-danger">*</sup></label>
 
                     <input type="password" name="confirma_senha" id="confirma_senha" value="<?=$dados['confirma_senha']?>"

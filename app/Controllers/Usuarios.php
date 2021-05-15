@@ -11,6 +11,10 @@ class Usuarios extends Controller
                 'email' => trim($formulario['email']),
                 'senha' => trim($formulario['senha']),
                 'confirma_senha' => trim($formulario['confirma_senha']),
+                'nome_erro' => '',
+                'email_erro' => '',
+                'senha_erro' => '',
+                'confirma_senha_erro' => '',
             ];
 
             if(empty($formulario['nome'])):
