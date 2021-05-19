@@ -33,11 +33,13 @@ class Usuarios extends Controller
                 endif;
             else:
 
-                if(!preg_match('/[a-zA-Z]+/m', $formulario['nome'])):
+                if(Checa::checarNome($formulario['nome'])):
                     $dados['nome_erro'] = 'O nome informado é inválido';
-                endif;
-                
-                if(strlen($formulario['senha'] < 6)):
+
+                elseif(Checa::checarEmail($formulario['email'])):
+                    $dados['email_erro'] = 'O e-mail informado é invalido';
+
+                elseif(strlen($formulario['senha'] < 6)):
                     $dados['senha_erro'] = 'A senha deve ter no mínimo 6 caracters';
                 
                 elseif($formulario['senha'] != $formulario['confirma_senha']):
