@@ -45,12 +45,14 @@ class Usuarios extends Controller
                 elseif($formulario['senha'] != $formulario['confirma_senha']):
                     $dados['confirma_senha_erro'] = 'As senhas são diferentes';
                 else:
+                    $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
+
                     echo "pode cadastrar os dados<hr>";
                 endif; 
 
-            endif;       
-
-            //var_dump($formulario);
+            endif;      
+            
+            var_dump($formulario);
         else:
             $dados = [
                 'nome' => '',
