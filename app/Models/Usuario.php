@@ -9,6 +9,18 @@ class Usuario
         $this->db = new Database;
     }
 
+    public function checarEmail($email)
+    {
+        $this->db->query("SELECT email FROM usuarios WHERE email = :e");
+        $this->db->bind(":e", $email);
+
+        if ($this->db->resultado()):
+            return true;
+        else:
+            return false;
+        endif;
+    }
+
     public function armazenar($dados)
     {
         $this->db->query("INSERT INTO usuarios(nome, email, senha)VALUES (:nome, :email, :senha)");

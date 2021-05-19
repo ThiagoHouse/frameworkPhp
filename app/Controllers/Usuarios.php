@@ -7,8 +7,6 @@ class Usuarios extends Controller
         $this->usuarioModel = $this->model('Usuario');   
     }
 
-    
-
     public function cadastrar()
     {
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -45,6 +43,9 @@ class Usuarios extends Controller
 
                 elseif(Checa::checarEmail($formulario['email'])):
                     $dados['email_erro'] = 'O e-mail informado é invalido';
+                    
+                elseif($this->usuarioModel->checarEmail($formulario['email'])):
+                    $dados['email_erro'] = 'O e-mail informado já está cadastrado';
 
                 elseif(strlen($formulario['senha'] < 6)):
                     $dados['senha_erro'] = 'A senha deve ter no mínimo 6 caracters';
