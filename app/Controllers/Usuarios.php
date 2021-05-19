@@ -2,6 +2,13 @@
 
 class Usuarios extends Controller
 {
+    public function __construct()
+    {
+        $this->usuarioModel = $this->model('Usuario');   
+    }
+
+    
+
     public function cadastrar()
     {
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -47,11 +54,16 @@ class Usuarios extends Controller
                 else:
                     $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
 
-                    echo "pode cadastrar os dados<hr>";
+                    if($this->usuarioModel->armazenar($dados)):
+                        echo "Cadastro Realizado com Sucesso";
+                    else:
+                        die("Erro ao armazenar usuario no banco de dados");
+                    endif;        
+                    
                 endif; 
 
             endif;      
-            
+
             var_dump($formulario);
         else:
             $dados = [
@@ -63,5 +75,6 @@ class Usuarios extends Controller
 
         endif;
         $this->view('usuarios/cadastar', $dados);
-    }
+    }  
 }
+
