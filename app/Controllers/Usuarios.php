@@ -43,7 +43,7 @@ class Usuarios extends Controller
 
                 elseif(Checa::checarEmail($formulario['email'])):
                     $dados['email_erro'] = 'O e-mail informado é invalido';
-                    
+
                 elseif($this->usuarioModel->checarEmail($formulario['email'])):
                     $dados['email_erro'] = 'O e-mail informado já está cadastrado';
 
@@ -64,18 +64,62 @@ class Usuarios extends Controller
                 endif; 
 
             endif;      
-
-            var_dump($formulario);
         else:
             $dados = [
                 'nome' => '',
                 'email' => '',
                 'senha' => '',
                 'confirma_senha' => '',
+                'nome_erro' => '',
+                'email_erro' => '',
+                'senha_erro' => '',
+                'confirma_senha_erro' => '',
             ];
 
         endif;
         $this->view('usuarios/cadastar', $dados);
+    }  
+
+    public function login()
+    {
+        $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        if(isset($formulario)):
+            $dados = [
+                'email' => trim($formulario['email']),
+                'senha' => trim($formulario['senha']),
+                'email_erro' => '',
+                'senha_erro' => '',
+            ];
+
+            if(in_array("", $formulario)):
+              
+                if(empty($formulario['email'])):
+                    $dados['email_erro'] = 'Preencha o campo email';
+                endif;                
+                if(empty($formulario['senha'])):
+                    $dados['senha_erro'] = 'Preencha o campo senha';
+                endif;
+            else:
+                if(Checa::checarEmail($formulario['email'])):
+                    $dados['email_erro'] = 'O e-mail informado é invalido';
+                else:
+                        echo "pode fazer login";
+                endif; 
+
+            endif;      
+
+            var_dump($formulario);
+        else:
+            $dados = [
+                'email' => '',
+                'senha' => '',
+                'email_erro' => '',
+                'senha_erro' => '',
+            ];
+
+        endif;
+
+        $this->view('usuarios/login', $dados);
     }  
 }
 

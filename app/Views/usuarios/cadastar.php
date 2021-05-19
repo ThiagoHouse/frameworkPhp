@@ -1,6 +1,6 @@
 <div class="col-xl-4 col-md-6 mx-auto p-5">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header bg-secondary text-white">
             Cadastre-se
         </div>    
         <div class="card-body">
@@ -46,11 +46,11 @@
                 </div>
 
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-6">
                         <input type="submit" value="Cadastar" class="btn btn-info btn-block">
                     </div>
-                    <div class="col">
-                        <a href="#">Você tem uma conta? Faça login</a>
+                    <div class="col-md-6">
+                        <a href="<?=URL?>/usuarios/login">Você tem uma conta? Faça login</a>
                     </div>
                 </div>
             </form>
