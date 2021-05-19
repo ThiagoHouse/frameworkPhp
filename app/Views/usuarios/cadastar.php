@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 pt-2">
                         <input type="submit" value="Cadastar" class="btn btn-info btn-block">
                     </div>
                     <div class="col-md-6">
