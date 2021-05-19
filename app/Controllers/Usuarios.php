@@ -33,6 +33,10 @@ class Usuarios extends Controller
                 endif;
             else:
 
+                if(!preg_match('/[a-zA-Z]+/m', $formulario['nome'])):
+                    $dados['nome_erro'] = 'O nome informado é inválido';
+                endif;
+                
                 if(strlen($formulario['senha'] < 6)):
                     $dados['senha_erro'] = 'A senha deve ter no mínimo 6 caracters';
                 
@@ -44,7 +48,7 @@ class Usuarios extends Controller
 
             endif;       
 
-            var_dump($formulario);
+            //var_dump($formulario);
         else:
             $dados = [
                 'nome' => '',
