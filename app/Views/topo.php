@@ -17,8 +17,6 @@
                         <a class="nav-link" href="#" data-tooltip="tooltip" title="Sobre nós">Sobre nós</a>
                     </li>
                 </ul>
-
-                
             </div>
             <span class="float-right navbar-text">
                     <a class = "btn btn-info" href="<?=URL?>/usuarios/cadastrar" data-tooltip="tooltip" title="Não tem uma conta? Cadastre-se">Cadastre-se</a>
