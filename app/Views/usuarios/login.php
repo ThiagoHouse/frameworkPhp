@@ -4,6 +4,7 @@
             Login
         </div>    
         <div class="card-body">
+        <?= Sessao::mensagem('usuario')?>
             <p class="card-text"><small class="text-muted">Informe seus dados para fazer login!</small></p>
 
             <form name="login" method="POST" action="<?= URL ?>/usuarios/login" class="mt-4">
