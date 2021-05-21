@@ -133,7 +133,7 @@ class Usuarios extends Controller
         $_SESSION['usuario_nome'] = $usuario->nome;
         $_SESSION['usuario_email'] = $usuario->email;
 
-        Url::redirecionar('paginas/home');
+        Url::redirecionar('posts');
     }
 
     public function sair(){
