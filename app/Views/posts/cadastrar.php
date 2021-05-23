@@ -11,7 +11,7 @@
         <div class="card-header bg-secondary text-white">
             Cadastrar Post
         </div>
-        <div class="card-body">
+        <div class="card-body bg-light">
 
             <form name="login" method="POST" action="<?= URL ?>/posts/cadastrar" class="mt-4">
                 <div class="form-group">
@@ -33,7 +33,7 @@
                     <textarea name="texto" 
                                 id="texto" 
                                 class="form-control <?=$dados['texto_erro'] 
-                                ? 'is-invalid' : '' ?>"><?= $dados['texto'] ?>
+                                ? 'is-invalid' : '' ?>" rows="5"><?= $dados['texto'] ?>
                     </textarea>
                     <div class="invalid-feedback">
                         <?= $dados['texto_erro'] ?>

@@ -7,6 +7,9 @@ class Posts extends Controller
         if (!Sessao::estaLogado()) :
             Url::redirecionar('usuarios/login');
         endif;
+
+        $this->postModel = $this->model('Post');   
+
     }
 
     public function index()
@@ -19,6 +22,7 @@ class Posts extends Controller
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if(isset($formulario)):
             $dados = [
+                'usuario_id' => $_SESSION['usuario_id'],
                 'titulo' => trim($formulario['titulo']),
                 'texto' => trim($formulario['texto']),
                 'titulo_erro' => '',
@@ -36,11 +40,17 @@ class Posts extends Controller
                 endif;
             else:
 
-                echo 'pode cadastrar o post';
+                if($this->postModel->armazenar($dados)):
+                    Sessao::mensagem('post', 'Post Cadastrado com Sucesso');
+                    Url::redirecionar('posts');
+                else:
+                    die("Erro ao armazenar posts no banco de dados");
+                endif;
 
             endif;      
         else:
             $dados = [
+                'usuario_id' => '',
                 'titulo' => '',
                 'texto' => '',
                 'titulo_erro' => '',
