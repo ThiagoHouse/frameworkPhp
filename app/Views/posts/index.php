@@ -18,7 +18,7 @@
                         <a href="#" class="btn btn-primary float-end">Ler mais</a>
                     </div>
                     <div class="card-footer text-muted">
-                        Escrito por: <?= $post->nome ?> em <?= date('d/m/Y H:i', strtotime($post->postDataCadasro)) ?>
+                        Escrito por: <?= $post->nome ?> em <?= Data::converteData($post->postDataCadasro) ?>
                     </div>
                 </div>
             <?php endforeach ?>
