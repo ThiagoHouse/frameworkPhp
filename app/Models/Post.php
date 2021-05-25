@@ -9,6 +9,20 @@ class Post
         $this->db = new Database;
     }
 
+    public function lerPosts()
+    {
+        $this->db->query("SELECT *,
+        posts.id as postID,
+        posts.criado_em as postDataCadasro,
+        usuarios.id as usuarioId,
+        usuarios.criado_em as usuarioDataCadastro
+        FROM posts 
+        INNER JOIN usuarios ON 
+        posts.usuario_id = usuarios.id
+        ");
+        return $this->db->resultados();
+    }
+
 
     public function armazenar($dados)
     {
