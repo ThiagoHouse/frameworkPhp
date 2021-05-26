@@ -10,7 +10,7 @@
         <div class="card-body">
             <?php foreach ($dados['posts'] as $post) : ?>
                 <div class="card my-5">
-                    <div class="card-header">
+                    <div class="card-header bg-secondary text-white font-weight-bold">
                         <?= $post->titulo ?>
                     </div>
                     <div class="card-body">
