@@ -12,15 +12,24 @@ class Post
     public function lerPosts()
     {
         $this->db->query("SELECT *,
-        posts.id as postID,
+        posts.id as postId,
         posts.criado_em as postDataCadasro,
         usuarios.id as usuarioId,
         usuarios.criado_em as usuarioDataCadastro
         FROM posts 
         INNER JOIN usuarios ON 
         posts.usuario_id = usuarios.id
+        ORDER BY posts.id DESC
         ");
         return $this->db->resultados();
+    }
+
+    public function lerPostPorId($id)
+    {
+        $this->db->query("SELECT * FROM posts WHERE id = :id");
+        $this->db->bind('id', $id);
+
+        return $this->db->resultado();
     }
 
 

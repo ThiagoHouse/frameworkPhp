@@ -15,7 +15,9 @@
                     </div>
                     <div class="card-body">
                         <p class="card-text"><?= $post->texto ?></p>
-                        <a href="#" class="btn btn-primary float-end">Ler mais</a>
+                        <a href=" <?= URL. '/posts/ver/'.$post->postId ?>" 
+                            class="btn btn-outline-primary float-end">Ler mais
+                        </a>
                     </div>
                     <div class="card-footer text-muted">
                         Escrito por: <?= $post->nome ?> em <?= Data::converteData($post->postDataCadasro) ?>
