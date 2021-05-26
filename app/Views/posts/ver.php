@@ -1,5 +1,5 @@
 <div class="container my-5">
-    <div class="card col-xl-8 col-md-6 mx-auto bg-light p-5">
+    <div class="card col-xl-8 col-md-6 mx-auto bg-light p-5 shadow ">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= URL ?>/posts">Posts</a></li>

@@ -1,6 +1,6 @@
 <div class="container py-5">
     <?= Sessao::mensagem('post') ?>
-    <div class="card col-xl-8 col-md-8 mx-auto">
+    <div class="card col-xl-8 col-md-8 mx-auto shadow ">
         <div class="card-header bg-info text-white">
             POSTAGENS
             <div class="float-end">
