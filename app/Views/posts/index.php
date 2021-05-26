@@ -1,13 +1,13 @@
 <div class="container py-5">
     <?= Sessao::mensagem('post') ?>
-    <div class="card">
+    <div class="card col-xl-8 col-md-8 mx-auto">
         <div class="card-header bg-info text-white">
             POSTAGENS
             <div class="float-end">
                 <a href="<?= URL ?>/posts/cadastrar" class="btn btn-light">Escrever</a>
             </div>
         </div>
-        <div class="card-body">
+        <div class="card-body bg-light">
             <?php foreach ($dados['posts'] as $post) : ?>
                 <div class="card my-5">
                     <div class="card-header bg-secondary text-white font-weight-bold">

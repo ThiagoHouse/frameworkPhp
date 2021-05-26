@@ -1,8 +1,8 @@
 <div class="container p-5">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
             <h1 class="my=5"><?=APP_NOME?></h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Framework em php.</p>
             <div class="col-md-4 mx-auto d-block">
 
                 <div class="img-fluid logo">

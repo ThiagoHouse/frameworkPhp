@@ -1,6 +1,6 @@
-<header class="bg-dark">
+<header class="bg-dark ">
     <div class="container">
-        <nav class="navbar navbar-expand-sm navbar-dark ">
+        <nav class="navbar navbar-expand-sm navbar-dark col-xl-8 col-md-6 mx-auto">
             <a class="navbar-brand" href="<?=URL?>">FrameworPHP</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
