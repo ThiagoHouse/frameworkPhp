@@ -15,7 +15,7 @@ class Sessao
 
                 elseif(!empty($_SESSION[$nome]) && empty($texto)):
                     $classe = !empty($_SESSION[$nome.'classe']) ? $_SESSION[$nome.'classe'] : 'alert alert-success';
-                    echo '<div class="'.$classe.'">'.$_SESSION[$nome].'</div>';
+                    echo '<div class="col-xl-8 col-md-6 mx-auto '.$classe.'">'.$_SESSION[$nome].'</div>';
 
                     unset($_SESSION[$nome]);
                     unset($_SESSION[$nome.'classe']);
