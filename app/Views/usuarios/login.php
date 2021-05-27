@@ -3,12 +3,12 @@
         <div class="card-header bg-secondary text-white">
             Login
         </div>    
-        <div class="card-body">
+        <div class="card-body bg-light">
         <?= Sessao::mensagem('usuario')?>
             <p class="card-text"><small class="text-muted">Informe seus dados para fazer login!</small></p>
 
             <form name="login" method="POST" action="<?= URL ?>/usuarios/login" class="mt-4">
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label for="email">E-mail: <sup class="text-danger">*</sup></label>
 
                     <input type="text" name="email" id="email" value="<?=$dados['email']?>"
@@ -17,7 +17,7 @@
                         <?=$dados['email_erro']?>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label for="senha">Senha: <sup class="text-danger">*</sup></label>
 
                     <input type="password" name="senha" id="senha" value="<?=$dados['senha']?>"

@@ -3,12 +3,12 @@
         <div class="card-header bg-secondary text-white">
             Cadastre-se
         </div>    
-        <div class="card-body">
+        <div class="card-body bg-light">
             <p class="card-text"><small class="text-muted">Preencha o formulário abaixo para fazer 
             seu cadastro</small></p>
 
             <form name="cadastrar" method="POST" action="<?= URL ?>/usuarios/cadastrar" class="mt-4">
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label for="nome">Nome: <sup class="text-danger">*</sup></label>
                     
                     <input type="text" name="nome" id="nome" value="<?=$dados['nome']?>" 
@@ -17,7 +17,7 @@
                         <?= $dados['nome_erro'] ?>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label for="email">E-mail: <sup class="text-danger">*</sup></label>
 
                     <input type="text" name="email" id="email" value="<?=$dados['email']?>"
@@ -26,7 +26,7 @@
                         <?=$dados['email_erro']?>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label for="senha">Senha: <sup class="text-danger">*</sup></label>
 
                     <input type="password" name="senha" id="senha" value="<?=$dados['senha']?>"
@@ -35,7 +35,7 @@
                         <?=$dados['senha_erro']?>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label for="confirma_senha">Confirmar senha: <sup class="text-danger">*</sup></label>
 
                     <input type="password" name="confirma_senha" id="confirma_senha" value="<?=$dados['confirma_senha']?>"
