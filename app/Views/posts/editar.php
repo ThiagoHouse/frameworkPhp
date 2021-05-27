@@ -21,7 +21,8 @@
                             name="titulo" 
                             id="titulo" 
                             value="<?=$dados['titulo']?>" 
-                            class="form-control <?=$dados['titulo_erro'] ? 'is-invalid' : '' ?>"/>
+                            class="form-control <?=$dados['titulo_erro'] ? 
+                            'is-invalid' : '' ?>"/>
                     <div class="invalid-feedback">
                         <?= $dados['titulo_erro'] ?>
                     </div>
@@ -30,8 +31,20 @@
                 <div class="form-group">
                     <label for="texto">Texto: <sup class="text-danger">*</sup></label>
 
-                    <textarea name="texto" 
-                                id="texto" 
+                    <textarea   name="texto" 
+                                id="texto"
+                                class="form-control <?=$dados['texto_erro'] 
+                                ? 'is-invalid' : '' ?>" rows="5"><?= $dados['texto'] ?>
+                    </textarea>
+                    <div class="invalid-feedback">
+                        <?= $dados['texto_erro'] ?>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="texto">Texto: <sup class="text-danger">*</sup></label>
+
+                    <textarea   name="texto" 
+                                id="texto"
                                 class="form-control <?=$dados['texto_erro'] 
                                 ? 'is-invalid' : '' ?>" rows="5"><?= $dados['texto'] ?>
                     </textarea>
