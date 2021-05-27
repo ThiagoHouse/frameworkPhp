@@ -18,7 +18,17 @@
                 Escrito por: <?= $dados['usuario']->nome ?> em <?= Data::converteData($dados['post']->criado_em ) ?>
             </div>
             <?php if($dados['post']->usuario_id == $_SESSION['usuario_id']):?>
-                <a href="<?= URL.'/posts/editar/'.$dados['post']->id ?>" class="btn btn-sm btn-primary">Editar</a>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="<?= URL.'/posts/editar/'.$dados['post']->id ?>" class="btn
+                        btn-sm btn-primary">Editar</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <form action="<?= URL . '/posts/deletar/' . $dados['post']->id ?>" method="POST">
+                            <input type="submit" class="btn btn-sm btn-danger" value="Deletar">
+                        </form>
+                    </li>
+                </ul>
             <?php endif ?>
         </div>
     </div>

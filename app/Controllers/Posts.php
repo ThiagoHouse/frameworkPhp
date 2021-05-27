@@ -128,8 +128,22 @@ class Posts extends Controller
 
         endif;
 
-        var_dump($formulario);
-
         $this->view('posts/editar', $dados);
-    }  
+    }
+
+    public function deletar($id)
+    {
+        $id = (int) $id;
+
+        if (is_int($id)):
+            if($this->postModel->destruir($id)):
+                Sessao::mensagem('post', 'Post deletado com sucesso!');
+                Url::redirecionar('posts');
+            else:
+                die("Erro ao tentar apagar o Post");
+            endif;
+        endif;
+
+        var_dump($id);
+    }
 }
