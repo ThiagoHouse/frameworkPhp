@@ -113,6 +113,11 @@ class Posts extends Controller
 
             $post = $this->postModel->lerPostPorId($id);
 
+            if ($post->usuario_id != $_SESSION['usuario_id']):
+                Sessao::mensagem('post', 'Você não tem autorização para editar este post', 'alert alert-danger');
+                Url::redirecionar('posts');
+            endif;
+
             $dados = [
                 'id' => $post->id,
                 'titulo' => $post->titulo,

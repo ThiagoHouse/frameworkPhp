@@ -39,7 +39,7 @@
                         <?= $dados['texto_erro'] ?>
                     </div>
                 </div>
-                <input type="submit" value="Atualizar" class="btn btn-info btn-block">
+                <input type="submit" value="Atualizar Post" class="btn btn-info btn-block mt-3 text-white">
             </form>
         </div>
     </div>
