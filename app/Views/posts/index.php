@@ -9,7 +9,7 @@
         </div>
         <div class="card-body bg-light">
             <?php foreach ($dados['posts'] as $post) : ?>
-                <div class="card my-5">
+                <div class="card my-5 shadow">
                     <div class="card-header bg-secondary text-white font-weight-bold">
                         <?= $post->titulo ?>
                     </div>
