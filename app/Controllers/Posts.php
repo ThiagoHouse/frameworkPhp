@@ -24,6 +24,11 @@ class Posts extends Controller
     public function ver($id)
     {
         $post = $this->postModel->lerPostPorId($id);
+
+        if ($post == null){
+            Url::redirecionar('paginas/error');
+        }
+
         $usuario = $this->usuarioModel->lerUsuarioPorId($post->usuario_id);
 
         $dados = [

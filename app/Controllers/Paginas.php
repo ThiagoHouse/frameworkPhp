@@ -25,5 +25,14 @@ class Paginas extends Controller{
         
         $this->view('paginas/sobre', $dados);
     }
+
+    public function error()
+    {
+        $dados = [
+            'tituloPagina' => 'Erro - Página não encontrada'
+        ];
+        
+        $this->view('paginas/error', $dados);
+    }
     
 }
