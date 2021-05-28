@@ -11,6 +11,10 @@ class Checa
         endif;
     }
 
+    /**
+     * Faz a validação de um email
+     * @param string 
+     */
     public static function checarEmail($email)
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)):
