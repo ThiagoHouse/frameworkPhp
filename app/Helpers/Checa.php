@@ -14,6 +14,7 @@ class Checa
     /**
      * Faz a validação de um email
      * @param string 
+     * @return bool 
      */
     public static function checarEmail($email)
     {
