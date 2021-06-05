@@ -3,6 +3,12 @@
 
     echo '<hr>';
 
+    if(isset($_FILES['arquivo'])):
+        move_uploaded_file($_FILES['arquivo']['tmp_name'], '../public/uploads/'.$_FILES['arquivo']['name']);
+    endif;
+
+    echo '<hr>';
+
 
 ?>
 
