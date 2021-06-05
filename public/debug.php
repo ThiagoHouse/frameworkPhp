@@ -6,6 +6,10 @@
         $diretorio = '../public/uploads/';
         $arquivo = $_FILES['arquivo']['name'];
 
+        if (!file_exists($diretorio) && !is_dir($diretorio)):
+            mkdir($diretorio, 0777);
+        endif;
+
         if(move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio.$arquivo)):
             echo 'Upload realizado com sucesso';
         else:
