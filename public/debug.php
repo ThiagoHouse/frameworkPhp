@@ -1,10 +1,16 @@
 <?php
     var_dump($_FILES);
-
     echo '<hr>';
 
     if(isset($_FILES['arquivo'])):
-        move_uploaded_file($_FILES['arquivo']['tmp_name'], '../public/uploads/'.$_FILES['arquivo']['name']);
+        $diretorio = '../public/uploads/';
+        $arquivo = $_FILES['arquivo']['name'];
+
+        if(move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio.$arquivo)):
+            echo 'Upload realizado com sucesso';
+        else:
+            echo 'Erro ao fazer upload';
+        endif;        
     endif;
 
     echo '<hr>';
