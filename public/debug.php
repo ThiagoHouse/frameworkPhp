@@ -10,6 +10,11 @@
             mkdir($diretorio, 0777);
         endif;
 
+        if (file_exists($diretorio.DIRECTORY_SEPARATOR.$arquivo)):
+            $nome = pathinfo($arquivo, PATHINFO_FILENAME);
+            $arquivo = $nome.'-'.uniqid().strrchr($arquivo, '.');
+        endif;
+
         if(move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio.$arquivo)):
             echo 'Upload realizado com sucesso';
         else:
