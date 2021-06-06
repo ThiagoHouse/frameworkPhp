@@ -2,6 +2,15 @@
 var_dump($_FILES);
 echo '<hr>';
 
+$nomeArquivo = 'arquivoTeste.txt';
+
+//deletando arquivo
+if (!file_exists('../public/uploads/'.$nomeArquivo)) :
+    unlink('../public/uploads/'.$nomeArquivo);
+    echo 'Arquivo deletado com sucesso';
+endif;
+
+
 if (isset($_FILES['arquivo'])) :
     $diretorio = '../public/uploads/';
     $arquivo = $_FILES['arquivo']['name'];
@@ -13,7 +22,6 @@ if (isset($_FILES['arquivo'])) :
     $tamanhoValido = ['image/jpeg', 'image/png'];
 
     $extensao = pathinfo($arquivo, PATHINFO_EXTENSION);
-    var_dump($extensao);
 
     if (!in_array($extensao, $extensoesValida)) :
         echo "A extensão não é permitida";
