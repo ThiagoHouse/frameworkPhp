@@ -3,6 +3,8 @@
 class Upload {
 
     private $diretorio;
+    private $arquivo;
+    private $tamanho;
 
     public function __construct($diretorio = null)
     {
@@ -13,8 +15,9 @@ class Upload {
         endif;
     }
 
-    public function imagem()
+    public function imagem($imagem, $tamanho = null)
     {
-        # code...
+        $this->arquivo = (array) $imagem;
+        $this->tamanho = $tamanho ?? 1;
     }
 }
