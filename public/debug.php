@@ -1,13 +1,12 @@
 <?php
 
-include '../app/Libraries/Upload.php'; 
-$upload = new Upload('uploads5');
-
 if (isset($_FILES['arquivo'])) :
+
+    include '../app/Libraries/Upload.php'; 
+    $upload = new Upload();
+    $upload->imagem($_FILES['arquivo'], 5);
     
-
 endif;
-
 
 // var_dump($_FILES);
 // echo '<hr>';
