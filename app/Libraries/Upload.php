@@ -34,11 +34,11 @@ class Upload
     public function imagem(array $imagem, string $nome = null, string $pasta = null, int $tamanho = null)
     {
         $this->arquivo = (array) $imagem;
-        $this->nome = $nome ?? pathinfo($this->arquivo['nome'], PATHINFO_FILENAME);
+        $this->nome = $nome ?? pathinfo($this->arquivo['name'], PATHINFO_FILENAME);
         $this->pasta = $pasta ?? 'imagens';
         $this->tamanho = $tamanho ?? 1;
 
-        $extensao = pathinfo($this->arquivo['name'], PATHINFO_FILENAME);
+        $extensao = pathinfo($this->arquivo['name'], PATHINFO_EXTENSION);
 
         $extensoesValida = ['png', 'jpg'];
         $tiposValidos = ['image/jpeg', 'image/png'];
@@ -71,8 +71,8 @@ class Upload
 
     private function criarPasta()
     {
-        if (!file_exists($this->diretorio) . DIRECTORY_SEPARATOR . $this->pasta && !is_dir($this->diretorio) . DIRECTORY_SEPARATOR . $this->pasta) :
-            mkdir(($this->diretorio) . ($this->diretorio) . DIRECTORY_SEPARATOR . $this->pasta . DIRECTORY_SEPARATOR . $this->pasta, 0777);
+        if (!file_exists($this->diretorio) . DIRECTORY_SEPARATOR . $this->pasta && !is_dir($this->diretorio . DIRECTORY_SEPARATOR . $this->pasta)) :
+            mkdir($this->diretorio . DIRECTORY_SEPARATOR . $this->pasta, 0777);
         endif;
     }
 

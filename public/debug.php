@@ -6,7 +6,7 @@ if (isset($_FILES['arquivo'])) :
     $upload = new Upload();
     $upload->imagem($_FILES['arquivo'], null, 'produtos');
     if ($upload->getResultado()) :
-        echo 'Upload realizado com sucesso' . $upload->getResultado();
+        echo 'Upload realizado com sucesso ' . $upload->getResultado();
     else :
         echo $upload->getErro();
     endif;
