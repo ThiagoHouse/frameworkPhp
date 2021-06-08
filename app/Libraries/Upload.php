@@ -1,10 +1,26 @@
 <?php
 
-class Upload {
+class Upload
+{
 
     private $diretorio;
     private $arquivo;
     private $tamanho;
+    private $nome;
+    private $pasta;
+
+    private $resultado;
+    private $erro;
+
+    public function getResultado(): string
+    {
+        return $this->resultado;
+    }
+
+    public function getErro(): string
+    {
+        return $this->erro;
+    }
 
     public function __construct(string $diretorio = null)
     {
@@ -15,25 +31,58 @@ class Upload {
         endif;
     }
 
-    public function imagem(array $imagem, int $tamanho = null)
+    public function imagem(array $imagem, string $nome = null, string $pasta = null, int $tamanho = null)
     {
         $this->arquivo = (array) $imagem;
+        $this->nome = $nome ?? pathinfo($this->arquivo['nome'], PATHINFO_FILENAME);
+        $this->pasta = $pasta ?? 'imagens';
         $this->tamanho = $tamanho ?? 1;
-        
-        $extensao = pathinfo($this->arquivo['name'], PATHINFO_EXTENSION);
+
+        $extensao = pathinfo($this->arquivo['name'], PATHINFO_FILENAME);
 
         $extensoesValida = ['png', 'jpg'];
         $tiposValidos = ['image/jpeg', 'image/png'];
 
-
         if (!in_array($extensao, $extensoesValida)) :
-            echo "A extensão não é permitida";
+            $this->erro = "A extensão não é permitida";
+            $this->resultado = false;
         elseif (!in_array($this->arquivo['type'], $tiposValidos)) :
-            echo 'Tipo invalido';
+            $this->erro = 'Tipo invalido';
+            $this->resultado = false;
         elseif ($this->arquivo['size'] > $this->tamanho * (1024 * 1024)) :
-            echo 'Arquivo muito grande';
+            $this->erro = 'Arquivo muito grande';
+            $this->resultado = false;
         else :
-            echo 'Pode enviar';
+            $this->criarPasta();
+            $this->renomearArquivo();
+            $this->moverArquivo();
+        endif;
+    }
+
+    private function renomearArquivo()
+    {
+        $arquivo = $this->nome . strchr($this->arquivo['name'], '.');
+        if (file_exists($this->diretorio . ($this->diretorio) . DIRECTORY_SEPARATOR . $this->pasta . DIRECTORY_SEPARATOR . $arquivo)) :
+            $arquivo = $this->nome . '-' . uniqid() . strchr($this->arquivo['name'], '.');
+        endif;
+
+        $this->nome = $arquivo;
+    }
+
+    private function criarPasta()
+    {
+        if (!file_exists($this->diretorio) . DIRECTORY_SEPARATOR . $this->pasta && !is_dir($this->diretorio) . DIRECTORY_SEPARATOR . $this->pasta) :
+            mkdir(($this->diretorio) . ($this->diretorio) . DIRECTORY_SEPARATOR . $this->pasta . DIRECTORY_SEPARATOR . $this->pasta, 0777);
+        endif;
+    }
+
+    private function moverArquivo()
+    {
+        if (move_uploaded_file($this->arquivo['tmp_name'], $this->diretorio . DIRECTORY_SEPARATOR . $this->nome)) :
+            $this->resultado = $this->nome;
+        else :
+            $this->resultado = false;
+            $this->erro = "Erro ao mover arquivo";
         endif;
     }
 }
